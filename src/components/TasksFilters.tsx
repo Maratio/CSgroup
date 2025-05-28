@@ -7,7 +7,7 @@ interface Props {
   setFilter: (newFilter: IFilter) => void;
 }
 
-const TasksFilter = ({ filter, setFilter }: Props) => {
+const TasksFilters = ({ filter, setFilter }: Props) => {
   return (
     <div>
       <MySelect
@@ -17,8 +17,8 @@ const TasksFilter = ({ filter, setFilter }: Props) => {
         }
         defaultValue={"сортировка по дате"}
         options={[
-          { value: "ascOrder", name: "По возрастанию" },
-          { value: "descOrder", name: "По убыванию" },
+          { value: "ascOrder", name: "Дата: по возрастанию" },
+          { value: "descOrder", name: "Дата: по убыванию" },
         ]}
       />
       <MySelect
@@ -29,13 +29,13 @@ const TasksFilter = ({ filter, setFilter }: Props) => {
         defaultValue={"выбор приоритета"}
         options={[
           { value: "notPriority", name: "нет приоритета" },
-          { value: "low", name: "низкий" },
-          { value: "medium", name: "средний" },
-          { value: "high", name: "высокий" },
+          { value: "низкий", name: "низкий приоритет" },
+          { value: "средний", name: "средний приоритет" },
+          { value: "высокий", name: "высокий приоритет" },
         ]}
       />
     </div>
   );
 };
 
-export default TasksFilter;
+export default TasksFilters;
