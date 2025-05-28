@@ -8,8 +8,17 @@ const rootReducer = combineReducers({
 
 export const setupStore = () => {
   return configureStore({
-    reducer: rootReducer
-  });
+    reducer: rootReducer,
+    middleware: (getDefaultMiddleware) =>
+    getDefaultMiddleware({
+      serializableCheck: {
+        // Ignore these action types
+        ignoredActions: ['tasks/addTask'],
+       
+      },
+    }),
+  }
+);
 };
 
 export type RootState = ReturnType<typeof rootReducer>;

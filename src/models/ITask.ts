@@ -3,7 +3,7 @@ interface ITask {
   title: string;
   description: string;
   priority: string;
-  createdAt: Date;
+  createdAt: string;
 }
 
 export default ITask;

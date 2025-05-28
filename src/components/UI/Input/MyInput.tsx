@@ -1,7 +1,4 @@
 import React from 'react';
-import classes from './MyInput.module.css'
-
-
 
 interface Props {
   placeholder?: string
@@ -12,7 +9,7 @@ interface Props {
 
 const MyInput = (props: Props) => {
     return (
-        <input className={classes.myInput}  {...props} />
+        <input  {...props} />
     );
 }
 

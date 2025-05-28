@@ -1,9 +1,7 @@
 import { useMemo } from "react";
 import ITask from "../models/ITask";
 
-// type Priority = "low" | "medium" | "high" | "notPriority";
-
-const useFilterPriority = (tasks:ITask[], searchPriority: string) => {
+const useFilterPriority = (tasks: ITask[], searchPriority: string) => {
   const searchTasksPriority = useMemo(() => {
     if (!searchPriority || searchPriority === "notPriority") {
       return tasks;
@@ -15,18 +13,25 @@ const useFilterPriority = (tasks:ITask[], searchPriority: string) => {
   return searchTasksPriority;
 };
 
-export const useFilter = (tasks:ITask[], sortDate: string, searchPriority:string) => {
+export const useFilter = (
+  tasks: ITask[],
+  sortDate: string,
+  searchPriority: string
+) => {
   const searchTasksPriority = useFilterPriority(tasks, searchPriority);
   const sortedAndSearchTasks = useMemo(() => {
     switch (sortDate) {
       case "ascOrder":
         const sortedTasksOrder = [...searchTasksPriority].sort(
-          (a, b) => a.createdAt.getTime() - b.createdAt.getTime()
+          // (a, b) => a.createdAt- b.createdAt
+          (a, b) => a.createdAt.localeCompare(b.createdAt)
         );
         return sortedTasksOrder;
       case "descOrder":
         const sortedTasksAscOrder = [...searchTasksPriority].sort(
-          (a, b) => b.createdAt.getTime() - a.createdAt.getTime()
+          // (a, b) => b.createdAt - a.createdAt
+          (a, b) => b.createdAt.localeCompare(a.createdAt)
+
         );
         return sortedTasksAscOrder;
       default:

@@ -1,22 +1,6 @@
 import React from 'react';
-import classes from './MyButton.module.css'
 import styled from 'styled-components';
 
-// interface Props {
-//     onClick: (() => void) | ((newEvent: React.MouseEvent) => void)
-//     children?: string;
-//     style?: React.CSSProperties
-  
-// }
-// const MyButton = ({children, ...props}: Props) => {
-//     return (
-//         <button {...props} className={classes.myBtn}>
-//             {children}
-//         </button>
-//     );
-// };
-
-// export default MyButton;
 
 interface Props {
   onClick: (() => void) | ((newEvent: React.MouseEvent) => void)
