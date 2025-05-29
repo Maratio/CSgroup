@@ -22,16 +22,13 @@ export const useFilter = (
   const sortedAndSearchTasks = useMemo(() => {
     switch (sortDate) {
       case "ascOrder":
-        const sortedTasksOrder = [...searchTasksPriority].sort(
-          // (a, b) => a.createdAt- b.createdAt
-          (a, b) => a.createdAt.localeCompare(b.createdAt)
+        const sortedTasksOrder = [...searchTasksPriority].sort((a, b) =>
+          a.createdAt.localeCompare(b.createdAt)
         );
         return sortedTasksOrder;
       case "descOrder":
-        const sortedTasksAscOrder = [...searchTasksPriority].sort(
-          // (a, b) => b.createdAt - a.createdAt
-          (a, b) => b.createdAt.localeCompare(a.createdAt)
-
+        const sortedTasksAscOrder = [...searchTasksPriority].sort((a, b) =>
+          b.createdAt.localeCompare(a.createdAt)
         );
         return sortedTasksAscOrder;
       default:

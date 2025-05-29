@@ -11,7 +11,7 @@ import {
   TasksListLi,
   TasksListUl,
 } from "../styles/styles";
-import { getRandomStringFromArray } from "../utils/utils";
+import { generateNewTask } from "../utils/utils";
 import TaskItem from "./TaskItem";
 import TasksFilters from "./TasksFilters";
 
@@ -30,13 +30,7 @@ const TasksList = () => {
 
   useEffect(() => {
     const timer = setInterval(() => {
-      const newTask: ITask = {
-        id: new Date().getTime(),
-        title: `Новая задача ${new Date().getTime()}`,
-        description: `Описание новой задачи ${new Date().getTime()}`,
-        createdAt: new Date().toISOString(),
-        priority: getRandomStringFromArray(["низкий", "средний", "высокий"]),
-      };
+      const newTask: ITask = generateNewTask();
       dispatch(addTask({ ...newTask }));
     }, 20000);
     return () => clearInterval(timer);

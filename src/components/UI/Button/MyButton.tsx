@@ -1,11 +1,10 @@
-import React from 'react';
-import styled from 'styled-components';
-
+import React from "react";
+import styled from "styled-components";
 
 interface Props {
-  onClick: (() => void) | ((newEvent: React.MouseEvent) => void)
+  onClick: (() => void) | ((newEvent: React.MouseEvent) => void);
   children?: string;
-  style?: React.CSSProperties
+  style?: React.CSSProperties;
 }
 
 const StyledButton = styled.button`
@@ -13,7 +12,7 @@ const StyledButton = styled.button`
   font-size: 16px;
   font-weight: bold;
   color: #fff;
-  background-color: #4CAF50;
+  background-color: #4caf50;
   border: none;
   border-radius: 5px;
   cursor: pointer;
@@ -29,11 +28,7 @@ const StyledButton = styled.button`
 `;
 
 const MyButton = ({ children, ...props }: Props) => {
-  return (
-    <StyledButton {...props}>
-      {children}
-    </StyledButton>
-  );
+  return <StyledButton {...props}>{children}</StyledButton>;
 };
 
 export default MyButton;

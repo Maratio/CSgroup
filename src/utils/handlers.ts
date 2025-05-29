@@ -3,6 +3,7 @@ import { IStatesForm } from "../models/IStatesForm";
 import { Dispatch } from "react";
 import { PayloadAction } from "@reduxjs/toolkit";
 import ITask from "../models/ITask";
+import { generateNewTask } from "./utils";
 
 export const handleSubmitCreate = (
   statesForm: IStatesForm,
@@ -11,10 +12,14 @@ export const handleSubmitCreate = (
 ) => {
   const id = new Date().getTime();
   const createdAt = new Date().toISOString();
-  const title = statesForm.title;
-  const description = statesForm.description;
-  const priority = statesForm.priority;
-  dispatch(addTask({ id, title, description, priority, createdAt }));
+  const newTask: ITask = generateNewTask(
+    id,
+    statesForm.title,
+    statesForm.description,
+    createdAt,
+    statesForm.priority
+  );
+  dispatch(addTask({ ...newTask }));
   setModal(false);
   statesForm.setTitle("");
   statesForm.setDescription("");
@@ -50,4 +55,3 @@ export const handleSubmitEdit = (
   dispatch(editTask({ ...task, title, description, priority }));
   setModal(false);
 };
-

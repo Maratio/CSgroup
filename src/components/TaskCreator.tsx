@@ -1,5 +1,5 @@
 import { useState } from "react";
-import Form from "./FormCreate";
+import Form from "./UI/Forms/FormCreate";
 import MyButton from "./UI/Button/MyButton";
 import MyModal from "./UI/Modal/MyModal";
 
@@ -12,7 +12,7 @@ const TaskCreator = () => {
         Добавить задачу
       </MyButton>
       <MyModal visible={modal} setVisible={setModal}>
-        <Form setModal={setModal}/>
+        <Form setModal={setModal} />
       </MyModal>
     </>
   );

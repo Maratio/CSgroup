@@ -15,7 +15,7 @@ import {
   TaskWrapper,
 } from "../styles/styles";
 import { handleDeleteTask, handleEditTask } from "../utils/handlers";
-import FormEdit from "./FormEdit";
+import FormEdit from "./UI/Forms/FormEdit";
 
 interface Props {
   task: ITask;

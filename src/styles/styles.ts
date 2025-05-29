@@ -184,16 +184,6 @@ export const StyledInput = styled(MyTextArea)`
   box-sizing: border-box;
 `;
 
-export const StyledSelectContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  padding: 10px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  width: 100%;
-`;
-
 export const StyledSelected = styled(MySelect)`
   width: 250px;
   height: 40px;
@@ -225,3 +215,18 @@ export const TaskCreatorContainer = styled.div`
 export const TasksListContainerTL = styled.div`
   margin-top: 20px;
   `;
+
+  export const CloseButton = styled.button`
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  font-size: 18px;
+  font-weight: bold;
+`;
+
+export const MyModalContent = styled.div`
+  position: relative;
+`;

@@ -1,20 +1,25 @@
-import { useAppDispatch } from "../hooks";
-import useStatesForm from "../hooks/useStatesForm";
-import { handleClear, handleSubmitCreate } from "../utils/handlers";
-import MyButton from "./UI/Button/MyButton";
-import Form from "./UI/Form/Form";
+import { useContext } from "react";
+import { FormFieldsContext } from "../../../context/FormFieldsProvider";
+import { useAppDispatch } from "../../../hooks";
+import { handleClear, handleSubmitCreate } from "../../../utils/handlers";
+import MyButton from "../Button/MyButton";
+import Form from "./Form";
 
 interface Props {
   setModal: (newModal: boolean) => void;
 }
 
 const FormCreate = ({ setModal }: Props) => {
-  const statesForm = useStatesForm("", "", "");
+  const statesForm = useContext(FormFieldsContext);
+
+  if (!statesForm) {
+    throw new Error("FormFieldsContext is not provided");
+  }
   const dispatch = useAppDispatch();
 
   return (
     <>
-      <Form {...statesForm} />
+      <Form />
       <div>
         <MyButton
           style={{ marginTop: 10 }}
